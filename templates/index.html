@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict if a passenger Survived or Died in RMS-TITANIC crash</h1>
+  								
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+      <label for="Pclass">Chose passenger class:</label>
+      <select name="Pclass" id="Pclass">
+      <option value="1">first class</option>
+      <option value="2">second class</option>
+      <option value="3">third class</option>
+    </select>
+    <br>
+    <label for="Sex">Chose passenger gender:</label>
+    <select name="Sex" id="Sex">
+    <option value="0">Male</option>
+    <option value="1">Female</option>
+  </select>
+  <br>
+
+      <label for="SibSp">Passenger Traveling with::</label>
+      <select name="SibSp" id="SibSp">
+      <option value="0">Alone</option>
+      <option value="1">Sibling</option>
+      <option value="2">Spouse</option>
+    </select>
+    <br>
+
+    <label for="Parch">Number of (parents+childeren) traveling with the traveler:</label>
+    <select name="Parch" id="Parch">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+  </select>
+  <br>
+
+    <label for="Embarked">Passenger embarked in:</label>
+    <select name="Embarked" id="Embarked">
+    <option value="1">Southampton</option>
+    <option value="2">Cherbourg</option>
+    <option value="3">Queenstown </option>
+  </select>
+  <br>
+
+  
+    <label for="AgeGroup">Age group:</label>
+    <select name="AgeGroup" id="AgeGroup">
+    <option value="1">Baby</option>
+    <option value="2">Child</option>
+    <option value="3">Teenager</option>
+    <option value="4">Student</option>
+    <option value="5">Young Adult</option>
+    <option value="6">Adult</option>
+    <option value="7">Senior</option>
+  </select>
+  <br>
+
+    <label for="CabinBool">The passenger had a cabin number:</label>
+    <select name="CabinBool" id="CabinBool">
+    <option value="1">Yes</option>
+    <option value="0">No</option>
+  </select>
+  <br>
+
+    <label for="Title">Title:</label>
+    <select name="Title" id="Title">
+    <option value="1">Mr</option>
+    <option value="2">Miss</option>
+    <option value="3">Mrs</option>
+    <option value="4">Master</option>
+    <option value="5">Royal</option>
+    <option value="6">Rare</option>
+  </select>
+  <br>
+
+    <label for="FareBand">Chose Fare Band:</label>
+    <select name="FareBand" id="FareBand">
+    <option value="1">Cheapest</option>
+    <option value="2">Cheap</option>
+    <option value="3">Medium</option>
+    <option value="4">Expensive</option>
+  </select>
+  <br>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ <img src="/static/images/Original.svg" style="width: 400px;position: absolute;bottom: 10px;left: 10px;" alt="Company Logo"/>
+
+</body>
+</html>
