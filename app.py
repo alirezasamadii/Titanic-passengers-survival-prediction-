@@ -30,4 +30,4 @@ def predict():
     return render_template('index.html', prediction_text=f'This passenger had  {output} with chance of: {round(probab) }%' )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+     app.run(debug=True, port=33507)
