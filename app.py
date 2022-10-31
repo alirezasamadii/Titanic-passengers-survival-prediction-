@@ -2,6 +2,7 @@ import numpy as np
 from flask import Flask, request,render_template
 import pickle
 import pandas as pd
+from sklearn.ensemble import GradientBoostingClassifier
 
 app = Flask(__name__)
 model = pickle.load(open('finalized_model.sav', 'rb'))
