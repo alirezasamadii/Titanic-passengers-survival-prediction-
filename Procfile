@@ -1,1 +1,1 @@
-web: gunicorn titanicsurvivers:app  
+web: gunicorn app  
