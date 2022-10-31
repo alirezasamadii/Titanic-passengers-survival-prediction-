@@ -2,6 +2,7 @@ import numpy as np
 from flask import Flask, request,render_template
 import pickle
 import pandas as pd
+import os
 
 app = Flask(__name__)
 model = pickle.load(open('finalized_model.sav', 'rb'))
@@ -30,4 +31,4 @@ def predict():
     return render_template('index.html', prediction_text=f'This passenger had  {output} with chance of: {round(probab) }%' )
 
 if __name__ == "__main__":
-     app.run(debug=True, port=33507)
+     app.run(debug=True, port=os.getenv('PORT'))
